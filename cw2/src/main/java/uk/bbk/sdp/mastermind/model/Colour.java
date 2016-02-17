@@ -1,4 +1,4 @@
-package uk.bbk.sdp.mastermind;
+package uk.bbk.sdp.mastermind.model;
 
 /**
  * Created by scarda01 on 17/02/2016.

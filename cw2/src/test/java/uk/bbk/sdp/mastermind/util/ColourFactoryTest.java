@@ -1,12 +1,11 @@
 package uk.bbk.sdp.mastermind.util;
 
 import org.junit.Test;
-import uk.bbk.sdp.mastermind.Colour;
+import uk.bbk.sdp.mastermind.model.Colour;
 import uk.bbk.sdp.mastermind.ColourFactory;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 

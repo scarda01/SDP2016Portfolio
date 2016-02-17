@@ -1,15 +1,14 @@
 package uk.bbk.sdp.mastermind.util;
 
-import uk.bbk.sdp.mastermind.Colour;
+import uk.bbk.sdp.mastermind.model.Colour;
 
 import java.util.List;
 import java.util.Random;
-import java.util.Set;
 
 /**
  * Created by scarda01 on 17/02/2016.
  */
-public class GameUtil {
+public class CodeUtil {
 
     public static String generateCode(List<Colour> colours, int size) {
 
@@ -20,5 +19,4 @@ public class GameUtil {
         }
         return code.toString();
     }
-
 }

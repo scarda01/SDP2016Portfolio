@@ -1,8 +1,2 @@
-blue
-green
-orange
-purple
-red
-yellow
-blue
-yellow
+5
+blue,green,orange,purple,red,yellow,blue,yellow
