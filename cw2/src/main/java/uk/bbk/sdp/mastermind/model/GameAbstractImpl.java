@@ -1,4 +1,4 @@
-package uk.bbk.sdp.mastermind;
+package uk.bbk.sdp.mastermind.model;
 
 public abstract class GameAbstractImpl implements Game {
     // if showCode is true then the secret code is revealed before
@@ -17,6 +17,4 @@ public abstract class GameAbstractImpl implements Game {
     public GameAbstractImpl(boolean easy) {
         showCode = easy;
     }
-
-    // ...
 }

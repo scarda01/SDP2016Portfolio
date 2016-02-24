@@ -1,4 +1,4 @@
-package uk.bbk.sdp.mastermind;
+package uk.bbk.sdp.mastermind.model;
 
 public interface Game {
     /**

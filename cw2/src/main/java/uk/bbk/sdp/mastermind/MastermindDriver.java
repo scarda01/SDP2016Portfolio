@@ -1,13 +1,15 @@
 package uk.bbk.sdp.mastermind;
 
+import uk.bbk.sdp.mastermind.model.Factory;
+import uk.bbk.sdp.mastermind.model.Game;
+
 public class MastermindDriver {
 
-    // Example - change as you need to...
     public static void main(String[] args) {
-        Game g = Factory.getInstance(Game.class, true);
-        g.runGames();
+        Game g1 = Factory.getInstance(Game.class, true);
+        g1.runGames();
 
-        g = Factory.getInstance(Game.class, false);
-        g.runGames();
+        Game g2 = Factory.getInstance(Game.class, false);
+        g2.runGames();
     }
 }
