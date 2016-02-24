@@ -1,22 +1,20 @@
 package uk.bbk.sdp.mastermind.model;
 
+import lombok.Getter;
+
 /**
  * Created by scarda01 on 17/02/2016.
  */
 public class Colour {
 
-    private String name;
+    private @Getter String name;
 
     public Colour(String name) {
         this.name = name;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public String getUPInitial() {
-        return name.substring(0,1).toUpperCase();
+        return name.substring(0,1);
     }
 
     @Override
