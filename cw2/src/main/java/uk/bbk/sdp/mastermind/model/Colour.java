@@ -14,7 +14,7 @@ public class Colour {
     }
 
     public String getUPInitial() {
-        return name.substring(0,1);
+        return name.substring(0,1).toUpperCase();
     }
 
     @Override
