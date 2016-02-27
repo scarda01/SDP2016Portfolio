@@ -8,9 +8,6 @@ import java.util.Random;
 
 import static com.google.common.collect.Lists.newArrayList;
 
-/**
- * Created by scarda01 on 17/02/2016.
- */
 public class CodeUtil {
 
     public static List<Colour> processColours(String coloursStr) {
