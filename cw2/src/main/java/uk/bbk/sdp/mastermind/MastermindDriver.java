@@ -8,8 +8,5 @@ public class MastermindDriver {
     public static void main(String[] args) {
         Game g1 = Factory.getInstance(Game.class, true);
         g1.runGames();
-
-        Game g2 = Factory.getInstance(Game.class, false);
-        g2.runGames();
     }
 }

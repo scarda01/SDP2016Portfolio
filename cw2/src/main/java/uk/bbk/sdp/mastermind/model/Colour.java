@@ -1,11 +1,9 @@
 package uk.bbk.sdp.mastermind.model;
 
 import lombok.Getter;
-
-/**
- * Created by scarda01 on 17/02/2016.
- */
 public class Colour {
+
+    public static final String BLACK = "Black";
 
     private @Getter String name;
 
