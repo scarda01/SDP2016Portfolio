@@ -2,6 +2,7 @@ package uk.bbk.sdp.mastermind.model;
 
 import com.google.inject.name.Named;
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.inject.Inject;
 import java.util.List;
@@ -13,7 +14,7 @@ public class Code {
 
     private @Getter List<Colour> colours;
     private @Getter int size;
-    private @Getter String secretCode;
+    private @Getter @Setter String secretCode;
 
     @Inject
     public Code(@Named("colours") String colourStr, @Named("size") Integer size) {

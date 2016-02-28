@@ -18,6 +18,12 @@ public class PlayerUtil {
         return scan.next();
     }
 
+    public static String readPlay(InputStream in) {
+        System.out.println("What is your next guess?");
+        Scanner scan = new Scanner(in);
+        return scan.next();
+    }
+
     public static boolean isValidInput(String guess, List<Colour> colours, int size) {
         if(guess.length() != size){
             return false;

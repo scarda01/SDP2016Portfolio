@@ -4,6 +4,8 @@ import lombok.Getter;
 
 public class Colour {
 
+    public static final String BLACK = "Black";
+
     private @Getter String name;
 
     public Colour(String name) {
