@@ -11,9 +11,6 @@ import static com.google.common.collect.Lists.newArrayList;
 import static org.apache.commons.lang3.StringUtils.isAlpha;
 import static org.junit.Assert.*;
 
-/**
- * Created by scarda01 on 17/02/2016.
- */
 public class CodeUtilTest {
 
     private List<Colour> colours;
