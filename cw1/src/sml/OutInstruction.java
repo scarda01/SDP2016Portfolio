@@ -12,13 +12,13 @@ public class OutInstruction extends Instruction {
     }
 
     public OutInstruction(String label, int register) {
-        this(label, "div");
+        this(label, "out");
         this.register = register;
     }
 
     @Override
     public String toString() {
-        return super.toString() + " out from " + register;
+        return super.toString() + " value from " + register;
     }
 
     @Override
