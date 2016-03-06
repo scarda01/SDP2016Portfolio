@@ -2,9 +2,13 @@ package sml;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
+import java.lang.Class;
+
 
 /*
  * The translator of a <b>S</b><b>M</b>al<b>L</b> program.
@@ -73,16 +77,56 @@ public class Translator {
     // removed. Translate line into an instruction with label label
     // and return the instruction
     public Instruction getInstruction(String label) {
-        int s1; // Possible operands of the instruction
+         //Replaced by Reflection
+        /* int s1; // Possible operands of the instruction
         int s2;
         int r;
         int x;
-        String strOp1;
+        String strOp1;*/
 
-        if (line.equals(""))
-            return null;
 
         String ins = scan();
+        String insName = ins.substring(0, 1).toUpperCase() + ins.substring(1);
+        String className = "sml." + insName + "Instruction";
+        StringBuilder parameterBuilder = new StringBuilder();
+        parameterBuilder.append(ins);
+        try {
+            Class instance = Class.forName(className);
+            Constructor[] constructors = instance.getConstructors();
+            for (Constructor cons : constructors) {
+                if(cons.getParameterCount() == 2
+                        && cons.getGenericParameterTypes()[0].equals("java.lang.String")
+                        && cons.getGenericParameterTypes()[1].equals("java.lang.String")) {
+                    //this is the default constructor and I am assuming every new class will have this, hence it won't be used here
+                    continue;
+                }
+                else {
+                    for(Type type : cons.getGenericParameterTypes()) {
+
+                    }
+                }
+                System.out.println(parameterBuilder.toString());
+            }
+//            Instruction instruct = (Instruction)constructor.newInstance("test","test");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } /*catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+*/
+
+        //replaced with Reflection
+
+        /*if (line.equals(""))
+            return null;
+
+
         switch (ins) {
             case "add":
                 r = scanInt();
@@ -115,7 +159,7 @@ public class Translator {
             case "out":
                 r = scanInt();
                 return new OutInstruction(label,r);
-        }
+        }*/
 
         return null;
     }
