@@ -3,10 +3,7 @@ package sml;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.NoSuchElementException;
-import java.util.Scanner;
+import java.util.*;
 import java.lang.Class;
 
 
@@ -88,29 +85,30 @@ public class Translator {
         String ins = scan();
         String insName = ins.substring(0, 1).toUpperCase() + ins.substring(1);
         String className = "sml." + insName + "Instruction";
-        StringBuilder parameterBuilder = new StringBuilder();
-        parameterBuilder.append(ins);
         try {
             Class instance = Class.forName(className);
             Constructor[] constructors = instance.getConstructors();
+            List<Object> parametersForInstance = new ArrayList<>();
             for (Constructor cons : constructors) {
-                if(cons.getParameterCount() == 2
-                        && cons.getGenericParameterTypes()[0].equals("java.lang.String")
-                        && cons.getGenericParameterTypes()[1].equals("java.lang.String")) {
+                Class[] paramTypes = {String.class, String.class};
+                if (cons.equals(instance.getDeclaredConstructor(paramTypes))) {
                     //this is the default constructor and I am assuming every new class will have this, hence it won't be used here
                     continue;
-                }
-                else {
-                    for(Type type : cons.getGenericParameterTypes()) {
-
+                } else {
+                    for(Parameter param : cons.getParameters()) {
+                        if(parametersForInstance.size() == 0) {
+                            parametersForInstance.add(ins);
+                            continue;
+                        }
+                        parametersForInstance.add((param.getType().getName().equals("int")) ? scanInt() : scan());
                     }
+                    return (Instruction)cons.newInstance(parametersForInstance);
                 }
-                System.out.println(parameterBuilder.toString());
             }
 //            Instruction instruct = (Instruction)constructor.newInstance("test","test");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-        } /*catch (NoSuchMethodException e) {
+        } catch (NoSuchMethodException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
             e.printStackTrace();
@@ -119,7 +117,6 @@ public class Translator {
         } catch (InvocationTargetException e) {
             e.printStackTrace();
         }
-*/
 
         //replaced with Reflection
 
